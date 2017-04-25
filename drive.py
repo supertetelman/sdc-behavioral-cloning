@@ -16,6 +16,8 @@ from keras.models import load_model
 import h5py
 from keras import __version__ as keras_version
 
+import behavioral_cloning as bc
+
 sio = socketio.Server()
 app = Flask(__name__)
 model = None
@@ -43,14 +45,12 @@ class SimplePIController:
         return self.Kp * self.error + self.Ki * self.integral
 
 
-controller = SimplePIController(0.1, 0.002)
-set_speed = 25
-controller.set_desired(set_speed)
-
-
-
 @sio.on('telemetry')
 def telemetry(sid, data):
+    preprocess = bc.default_preprocess()
+    preprocess['yuv'] = False
+    preprocess['blur'] = False
+
     if data:
         # The current steering angle of the car
         steering_angle = data["steering_angle"]
@@ -62,6 +62,7 @@ def telemetry(sid, data):
         imgString = data["image"]
         image = Image.open(BytesIO(base64.b64decode(imgString)))
         image_array = np.asarray(image)
+        image_array = bc.image_preprocess(image_array, preprocess) # XXX: Added by Adam Tetelman
         steering_angle = float(model.predict(image_array[None, :, :, :], batch_size=1))
         print(steering_angle)
 
@@ -105,6 +106,13 @@ if __name__ == '__main__':
         help='Path to model h5 file. Model should be on the same path.'
     )
     parser.add_argument(
+        'speed',
+        type=int,
+        nargs='?',
+        default=9,
+        help='Set speed'
+    )
+    parser.add_argument(
         'image_folder',
         type=str,
         nargs='?',
@@ -112,6 +120,11 @@ if __name__ == '__main__':
         help='Path to image folder. This is where the images from the run will be saved.'
     )
     args = parser.parse_args()
+
+    # Initialize controller
+    controller = SimplePIController(0.1, 0.002)
+    set_speed = args.speed
+    controller.set_desired(set_speed)
 
     # check that model Keras version is same as local Keras version
     f = h5py.File(args.model, mode='r')
