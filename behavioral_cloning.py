@@ -15,6 +15,8 @@ from sklearn.model_selection import train_test_split
 
 import keras
 from keras.layers import  Cropping2D, Lambda
+from keras.utils import plot_model
+
 import tensorflow as tf
 
 
@@ -398,9 +400,13 @@ def model_save(model, output):
     # XXX: May fail on Windows if Keras is not patched with this fix:
     # BUG: https://github.com/fchollet/keras/issues/4135
     output_file = os.path.join(MODEL_DIR, output)
+    plot_file = output + ".png"
     print("Saving model to %s" %(output_file))
+    print("Plotting model to %s" %(plot_file))
 
     model.save(output_file)
+    # Plot the model to file may fail on certain platforms BUG: https://github.com/fchollet/keras/issues/3210
+    plot_model(model, to_file=plot_file)
 
 
 ############################################################################
