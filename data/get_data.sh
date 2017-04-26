@@ -1,5 +1,2 @@
-mkdir models
-mkdir logs
-mkdir data
-curl -o data.zip https://d17h27t6h515a5.cloudfront.net/topher/2016/December/584f6edd_data/data.zip
+curl -o data.tar https://www.dropbox.com/s/shmh3ladflou44z/data.rar?dl=0
 tar -xvf data.tar
