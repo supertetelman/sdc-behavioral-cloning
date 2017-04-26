@@ -671,3 +671,4 @@ If I had a bit more time I would like to go back and get Track 2 working perfect
 
 The final data used is located in ./data/
 The final model used is located in ./models/final_model/
+The final video is located in ./logs/final_model/final_model.mp4
