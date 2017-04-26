@@ -216,7 +216,7 @@ bch.plot_run_files(results_pickle_file, history_dir)
     
 
 
-![png](output_12_1.png)
+![png](imgs/output_12_1.png)
 
 
 
@@ -234,7 +234,7 @@ bch.plot_run_files(results_pickle_file, history_dir)
     
 
 
-![png](output_13_1.png)
+![png](imgs/output_13_1.png)
 
 
 
@@ -252,7 +252,7 @@ bch.plot_run_files(results_pickle_file, history_dir)
     
 
 
-![png](output_14_1.png)
+![png](imgs/output_14_1.png)
 
 
 
@@ -270,7 +270,7 @@ bch.plot_run_files(results_pickle_file, history_dir)
     
 
 
-![png](output_15_1.png)
+![png](imgs/output_15_1.png)
 
 
 
@@ -288,7 +288,7 @@ bch.plot_run_files(results_pickle_file, history_dir)
     
 
 
-![png](output_16_1.png)
+![png](imgs/output_16_1.png)
 
 
 ### Again With Different Data
@@ -328,7 +328,7 @@ bch.plot_run_files(results_pickle_file, history_dir)
     
 
 
-![png](output_20_1.png)
+![png](imgs/output_20_1.png)
 
 
 
@@ -346,7 +346,7 @@ bch.plot_run_files(results_pickle_file, history_dir)
     
 
 
-![png](output_21_1.png)
+![png](imgs/output_21_1.png)
 
 
 
@@ -364,7 +364,7 @@ bch.plot_run_files(results_pickle_file, history_dir)
     
 
 
-![png](output_22_1.png)
+![png](imgs/output_22_1.png)
 
 
 
@@ -382,7 +382,7 @@ bch.plot_run_files(results_pickle_file, history_dir)
     
 
 
-![png](output_23_1.png)
+![png](imgs/output_23_1.png)
 
 
 
@@ -400,7 +400,7 @@ bch.plot_run_files(results_pickle_file, history_dir)
     
 
 
-![png](output_24_1.png)
+![png](imgs/output_24_1.png)
 
 
 
@@ -418,7 +418,7 @@ bch.plot_run_files(results_pickle_file, history_dir)
     
 
 
-![png](output_25_1.png)
+![png](imgs/output_25_1.png)
 
 
 ### Summarize Those Results
@@ -510,7 +510,7 @@ bch.plot_run_files(False, history_dir)
 
 
 
-![png](output_33_2.png)
+![png](imgs/output_33_2.png)
 
 
 ### Choosing Parameters
@@ -588,7 +588,7 @@ plt.imshow(img)
 
 
 
-![png](output_39_1.png)
+![png](imgs/output_39_1.png)
 
 
 ### Training Some More Parameters
